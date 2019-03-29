@@ -5,17 +5,13 @@ import './Wrapper.css';
 
 class Wrapper extends Component {
     render() {
-        const title = this.props.title;
         const data = this.props.data;
         const content = data.map((e,id) => 
-            <div className="col-md-4 image-container my-3" key={id}>
-                <Link to={e.href}><img className="program-image" src={e.img_path} /></Link>
+            <div className="col-md-4 image-container noselect my-3" key={id}>
+                <Link to={e.href}><img className="program-image" src={e.img_path} alt="program tool image"/></Link>
             </div>)
         return (
             <div className="my-3">
-                <div className="program-title my-1 px-3">
-                    {title}
-                </div>
                 <div className="row">
                     {content}
                 </div>

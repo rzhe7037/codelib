@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route} from 'react-router-dom';
 import { Switch } from 'react-router';
-import { Redirect } from 'react-router';
 import Homepage from './container/Homepage/index.js';
 import Navbar from './component/Navbar';
 import Sidebar from './component/Sidebar';
-import Bootstrap from './container/Bootstrap';
+import DocumentPage from './container/DocumentPage/index.js';
+import DefaultPage from './container/DefaultPage/index.js';
 
 class App extends Component {
   render() {
@@ -15,10 +15,12 @@ class App extends Component {
         <Navbar />
         <BrowserRouter >
           <div className="App-container">
-              <Route exact path="/:path" component={Sidebar}/>
+              <Route path="/:path" component={Sidebar}/>
               <Switch>
-                <Route exact path="/" component={Homepage}/>
-                <Route path="/doc/bootstrap" component={Bootstrap}/>
+                <Route exact path="/" component={Homepage} />
+                <Route path="/:path/:id" component={DocumentPage} />
+                <Route exact path="/:path" component={DefaultPage} />
+                
               </Switch>
           </div>
         </BrowserRouter>

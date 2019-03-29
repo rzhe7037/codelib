@@ -1,0 +1,10 @@
+.card-header, .card-body{
+    font-size: 15px !important;
+    position: relative;
+}
+
+.card-header button{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}

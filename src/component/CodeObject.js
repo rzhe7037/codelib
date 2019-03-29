@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
+import './CodeObject.css';
 
 class CodeObject extends Component {
     render() {
+        const {label,code,description} = this.props.codecard;
         return (
-            <div className="card my-3">
+            <div className="card my-3  border-secondary">
                 <div className="card-header">
-                    CODE ACTION
+                    {label}
+                    <button className="btn btn-dark" id={this.props.id} onClick={this.props.toggleEditForm}>Edit</button>
+                    
                 </div>
                 <div className="card-body">
-                    <h5 className="card-title">Special title treatment</h5>
-                    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                    <div className="row">
+                        <div className="col-sm-8 text-success">
+                            <div className="card-title">
+                                Code:
+                            </div>
+                            {code}
+                        </div>
+                        <div className="col-sm-4">
+                            <div className="card-title">
+                                Description:
+                            </div>
+                            {description}
+                           
+                        </div>
+                    </div>
                 </div>
             </div>
         );

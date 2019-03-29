@@ -5,7 +5,7 @@ class Dropdown extends Component {
         const childrenList = this.props.children.map(
             (child,id) => 
                 <li key={id}>
-                    <a href={child.href}>{child.label}</a>
+                    <a href={`/${this.props.category}/${child.id}`}>{child.label}</a>
                 </li>
             );
         const label = this.props.label;
@@ -13,7 +13,7 @@ class Dropdown extends Component {
         const id= this.props.id;
         return (
             <li key={id} className="dropdown">
-                <a href={"#"+sublabelId}  data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">{label}</a>
+                <a href={"#"+sublabelId}  data-toggle="collapse" aria-expanded="false" className="dropdown-toggle sidebar-text">{label}</a>
                 <ul className="collapse list-unstyled" id={sublabelId}>
                     {childrenList}
                 </ul>

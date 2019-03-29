@@ -5,17 +5,14 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="#">Code Library</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <SearchBar/>
+                <a className="navbar-brand" href="/">Code Library</a>
+
+                <SearchBar/>
+                <div className="navbar-item ml-auto text-white ">
+                    <a className="navbar-link" href="/"> <i className="fas fa-home"></i></a>
+                   
                 </div>
-                <ul>
-                    <li className="navbar-item"><a href="/">Home</a></li>
-                </ul>
-         
+                 
             </nav>
         );
     }

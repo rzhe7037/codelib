@@ -1,0 +1,31 @@
+.DefaultPage{
+    margin-left:15%;
+
+}
+
+.DefaultPage .content{
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    background: #FAFAFA;
+    height: 88vh;
+    margin-top: 10px;
+    padding: 30px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.content-wrapper{
+    width: 60%;
+    height: 70%;
+    margin: auto;
+    background: #E7F8E1;
+    border: 1px solid #89DA70;
+    padding: 5%;
+}
+
+.DefaultPage .menu .btn{
+    font-size: 15px;
+}

@@ -1,0 +1,22 @@
+.DocumentPage{
+    margin-left:15%;
+    
+}
+
+.DocumentPage .content{
+    overflow: auto;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    background: #FAFAFA;
+    height: 88vh;
+    margin-top: 10px;
+    padding: 30px;
+    font-size: 20px;
+    position: relative;
+}
+
+
+.DocumentPage .content ul{
+    list-style: none;
+    
+}

@@ -7,6 +7,10 @@ iframe{
   display: none;
 }
 
+a{
+  color:#D8D8D8;
+}
+
 .App-container{
   margin-left: 10%;
   overflow: auto;

@@ -23,7 +23,8 @@ class Homepage extends Component {
         if(this.state.data.length === 0){
             return null;
         }
-        console.log(this.state.data);
+
+        
         const image_cards = <Wrapper title="Programming tool" data={this.state.data} />
         return (
             <div>

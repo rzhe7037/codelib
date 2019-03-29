@@ -4,77 +4,48 @@ import Dropdown from './Dropdown';
 class Sidebar extends Component {
     constructor(props){
         super(props);
-        fetch(`/api/test`)
-        .then(res => res.json())
-        .then(data => console.log(data.a));
+        this.state = {
+            data:null
+        }
+    }
+
+    componentDidMount(){
+        const path = this.props.match.params.path;
+        const categoryFromPath = path.split('/')[0];
+
+
+        fetch(`/api/menuNode/search/category=${categoryFromPath}`)
+        .then( data => data.json())
+        .then(data => {
+            this.setState({data:data.result});
+        })
+        .catch(err=>
+            {
+                console.log(err)
+                return
+            }
+        )
+        
     }
     render() {
         const path = this.props.match.params.path;
         const categoryFromPath = path.split('/')[0];
-        const CategoryStructure = [
-            {
-                category: "bootstrap",
-                structure: [
-                    {
-                        label:"CDN",
-                        href:"",
-                        children:[
-                            {
-                                label:"xxx",
-                                href:"yyy"
-                            },
-                            {
-                                label:"xxx",
-                                href:"yyy"
-                            },
-                            {
-                                label:"xxx",
-                                href:"yyy"
-                            }
-                        ]
-                    },
-                    {
-                        label:"Navbar",
-                        href:""
-                    },
-                ]
-            },
-            {
-                category: "javascript",
-                structure: [
-                    {
-                        label:"animation",
-                        href:""
-                    },
-                    {
-                        label:"Navbar",
-                        href:""
-                    },
-                ]
-            },
-        ];
-        var category;
-        for (let index = 0; index < CategoryStructure.length; index++) {
-            const element = CategoryStructure[index];
-            if(element.category == categoryFromPath){
-                category = element;
-                break;
-            }
-            
+        if(this.state.data == null){
+            return <div></div>;
         }
-        const sidebarList = category.structure.map((list,id) => {
-            if(list.children){
-                return <Dropdown key={id} children={list.children} label={list.label} />
+        const sidebarList = this.state.data.structure.map((list,id) => {
+            if(list.children.length > 0){
+                return <Dropdown key={id} children={list.children} label={list.label} category={categoryFromPath}/>
             }
             else{
-                return <li key={id}>{list.label}</li>
+                return <li key={id}><a href={`/${categoryFromPath}/${list.id}`}>{list.label}</a></li>
             }
         });
        
         return (
             <div className="sidebar">
-                <div className="sidebar-header">{categoryFromPath}</div>
-                <ul>
+                <div className="sidebar-header"><a href={`/${categoryFromPath}`} >{categoryFromPath}</a></div>
+                <ul className="sidebar-body">
                     {sidebarList}
                 </ul>    
             </div>
